@@ -1,0 +1,399 @@
+{
+  "users": [
+    {
+      "id": "usr-101",
+      "name": "Rajesh Kumar",
+      "email": "citizen@ccms.gov",
+      "password": "password123",
+      "role": "citizen",
+      "phone": "+91 9876543210",
+      "address": "Sector 14, Main Market, City Central"
+    },
+    {
+      "id": "usr-102",
+      "name": "Priya Sharma",
+      "email": "priya@ccms.gov",
+      "password": "password123",
+      "role": "citizen",
+      "phone": "+91 9812345678",
+      "address": "Green Park Colony, Ward 5"
+    },
+    {
+      "id": "usr-103",
+      "name": "Amit Verma",
+      "email": "officer.sanitation@ccms.gov",
+      "password": "password123",
+      "role": "officer",
+      "phone": "+91 9988776655",
+      "departmentId": "dept-1",
+      "departmentName": "Sanitation & Waste Management"
+    },
+    {
+      "id": "usr-104",
+      "name": "Suresh Patel",
+      "email": "officer.roads@ccms.gov",
+      "password": "password123",
+      "role": "officer",
+      "phone": "+91 9776655443",
+      "departmentId": "dept-2",
+      "departmentName": "Public Works & Roads"
+    },
+    {
+      "id": "usr-105",
+      "name": "Vikram Singh",
+      "email": "officer.electrical@ccms.gov",
+      "password": "password123",
+      "role": "officer",
+      "phone": "+91 9665544332",
+      "departmentId": "dept-3",
+      "departmentName": "Electricity & Street Lighting"
+    },
+    {
+      "id": "usr-106",
+      "name": "Chief Admin BATTU SRINIVAS",
+      "email": "admin@ccms.gov",
+      "password": "password123",
+      "role": "admin",
+      "phone": "+91 9554433221",
+      "departmentName": "System Administration"
+    },
+    {
+      "points": 50,
+      "badges": [
+        "Civic Pioneer"
+      ],
+      "rewardsRedeemed": [],
+      "id": "usr-1791802049110",
+      "name": "sri srinivas",
+      "email": "battumani32@gmail.com",
+      "password": "ajay9100",
+      "role": "citizen",
+      "phone": "+919177845058",
+      "address": ""
+    }
+  ],
+  "departments": [
+    {
+      "id": "dept-1",
+      "name": "Sanitation & Waste Management",
+      "code": "SWM",
+      "slaHours": 24,
+      "head": "Officer Amit Verma",
+      "activeComplaints": 3
+    },
+    {
+      "id": "dept-2",
+      "name": "Public Works & Roads",
+      "code": "PWR",
+      "slaHours": 48,
+      "head": "Officer Suresh Patel",
+      "activeComplaints": 2
+    },
+    {
+      "id": "dept-3",
+      "name": "Electricity & Street Lighting",
+      "code": "ESL",
+      "slaHours": 12,
+      "head": "Officer Vikram Singh",
+      "activeComplaints": 1
+    },
+    {
+      "id": "dept-4",
+      "name": "Water Supply & Sewage",
+      "code": "WSS",
+      "slaHours": 24,
+      "head": "Engineer R. Sharma",
+      "activeComplaints": 1
+    },
+    {
+      "id": "dept-5",
+      "name": "Traffic & Public Safety",
+      "code": "TPS",
+      "slaHours": 6,
+      "head": "Inspector M. Khan",
+      "activeComplaints": 0
+    },
+    {
+      "id": "dept-6",
+      "name": "Health & Environmental Services",
+      "code": "HES",
+      "slaHours": 36,
+      "head": "Dr. K. Swaminathan",
+      "activeComplaints": 0
+    }
+  ],
+  "complaints": [
+    {
+      "id": "CCMS-2026-19050",
+      "title": "Aruntdhathi colny",
+      "description": "LEakages of drainages",
+      "category": "Water Supply & Sewage",
+      "departmentId": "dept-4",
+      "priority": "Emergency",
+      "status": "Submitted",
+      "citizenId": "usr-106",
+      "citizenName": "Ananya Roy",
+      "citizenEmail": "admin@ccms.gov",
+      "citizenPhone": "+91 9554433221",
+      "location": "hyderabad jodimetla",
+      "lat": 28.6139,
+      "lng": 77.209,
+      "createdAt": "2026-09-22T06:57:53.642Z",
+      "updatedAt": "2026-09-22T06:57:53.642Z",
+      "slaDeadline": "2026-09-23T06:57:53.642Z",
+      "assignedOfficerId": null,
+      "assignedOfficerName": null,
+      "imageUrl": null,
+      "resolutionProofUrl": null,
+      "resolutionNotes": null,
+      "feedback": null,
+      "timeline": [
+        {
+          "status": "Submitted",
+          "note": "Complaint registered by citizen",
+          "timestamp": "2026-09-22T06:57:53.642Z",
+          "updatedBy": "Ananya Roy"
+        }
+      ]
+    },
+    {
+      "id": "CCMS-2026-89412",
+      "title": "Overflowing Garbage Bin near Central Park",
+      "description": "The commercial waste bin near the main gate of Central Park hasn't been emptied for 3 days. It is causing severe foul odor and attracting stray animals.",
+      "category": "Sanitation & Waste Management",
+      "departmentId": "dept-1",
+      "priority": "High",
+      "status": "In Progress",
+      "citizenId": "usr-101",
+      "citizenName": "Rajesh Kumar",
+      "citizenEmail": "citizen@ccms.gov",
+      "citizenPhone": "+91 9876543210",
+      "location": "Gate 2, Central Park, MG Road",
+      "lat": 28.6139,
+      "lng": 77.209,
+      "createdAt": "2026-09-21T10:57:57.090Z",
+      "updatedAt": "2026-09-22T00:57:57.091Z",
+      "slaDeadline": "2026-09-22T10:57:57.091Z",
+      "assignedOfficerId": "usr-103",
+      "assignedOfficerName": "Amit Verma",
+      "imageUrl": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800",
+      "resolutionProofUrl": null,
+      "resolutionNotes": null,
+      "feedback": null,
+      "timeline": [
+        {
+          "status": "Submitted",
+          "note": "Complaint submitted by citizen",
+          "timestamp": "2026-09-21T10:57:57.091Z",
+          "updatedBy": "Rajesh Kumar"
+        },
+        {
+          "status": "Assigned",
+          "note": "Verified by Admin Ananya Roy and assigned to Sanitation Department (Officer Amit Verma)",
+          "timestamp": "2026-09-21T14:57:57.091Z",
+          "updatedBy": "Ananya Roy"
+        },
+        {
+          "status": "In Progress",
+          "note": "Municipal Sanitation truck dispatched to location.",
+          "timestamp": "2026-09-22T00:57:57.091Z",
+          "updatedBy": "Amit Verma"
+        }
+      ]
+    },
+    {
+      "id": "CCMS-2026-47120",
+      "title": "Hazardous Deep Pothole on Main Highway Flyover",
+      "description": "A 2-foot deep pothole has formed right at the end of the flyover ramp. Two motorbikes were damaged yesterday night. Requires urgent patch work.",
+      "category": "Public Works & Roads",
+      "departmentId": "dept-2",
+      "priority": "Emergency",
+      "status": "Assigned",
+      "citizenId": "usr-102",
+      "citizenName": "Priya Sharma",
+      "citizenEmail": "priya@ccms.gov",
+      "citizenPhone": "+91 9812345678",
+      "location": "Outer Ring Road Flyover Ramp, South Exit",
+      "lat": 28.5355,
+      "lng": 77.261,
+      "createdAt": "2026-09-21T18:57:57.091Z",
+      "updatedAt": "2026-09-21T20:57:57.091Z",
+      "slaDeadline": "2026-09-23T18:57:57.091Z",
+      "assignedOfficerId": "usr-104",
+      "assignedOfficerName": "Suresh Patel",
+      "imageUrl": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800",
+      "resolutionProofUrl": null,
+      "resolutionNotes": null,
+      "feedback": null,
+      "timeline": [
+        {
+          "status": "Submitted",
+          "note": "Complaint submitted with high urgency alert",
+          "timestamp": "2026-09-21T18:57:57.091Z",
+          "updatedBy": "Priya Sharma"
+        },
+        {
+          "status": "Assigned",
+          "note": "Flagged as Emergency. Assigned to Road Inspection Officer Suresh Patel.",
+          "timestamp": "2026-09-21T20:57:57.091Z",
+          "updatedBy": "Ananya Roy"
+        }
+      ]
+    },
+    {
+      "id": "CCMS-2026-10394",
+      "title": "Non-functional Streetlights in Block B Residential Area",
+      "description": "All 5 streetlights along Lane 4 are flickering or completely dead, making the lane unsafe for pedestrians at night.",
+      "category": "Electricity & Street Lighting",
+      "departmentId": "dept-3",
+      "priority": "Medium",
+      "status": "Resolved",
+      "citizenId": "usr-101",
+      "citizenName": "Rajesh Kumar",
+      "citizenEmail": "citizen@ccms.gov",
+      "citizenPhone": "+91 9876543210",
+      "location": "Block B, Lane 4, Vasant Kunj",
+      "lat": 28.5244,
+      "lng": 77.1588,
+      "createdAt": "2026-09-19T04:57:57.091Z",
+      "updatedAt": "2026-09-21T04:57:57.091Z",
+      "slaDeadline": "2026-09-19T16:57:57.091Z",
+      "assignedOfficerId": "usr-105",
+      "assignedOfficerName": "Vikram Singh",
+      "imageUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=800",
+      "resolutionProofUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=800",
+      "resolutionNotes": "Replaced faulty transformer fuse and installed 5 new LED energy-efficient street lamps.",
+      "feedback": {
+        "rating": 5,
+        "comment": "Excellent response time! The lane is brightly lit now. Thank you CCMS team!",
+        "createdAt": "2026-09-21T16:57:57.091Z"
+      },
+      "timeline": [
+        {
+          "status": "Submitted",
+          "note": "Complaint submitted",
+          "timestamp": "2026-09-19T04:57:57.091Z",
+          "updatedBy": "Rajesh Kumar"
+        },
+        {
+          "status": "Assigned",
+          "note": "Assigned to Officer Vikram Singh",
+          "timestamp": "2026-09-19T08:57:57.091Z",
+          "updatedBy": "Ananya Roy"
+        },
+        {
+          "status": "In Progress",
+          "note": "Electrical crew dispatched with ladder vehicle.",
+          "timestamp": "2026-09-20T12:57:57.091Z",
+          "updatedBy": "Vikram Singh"
+        },
+        {
+          "status": "Resolved",
+          "note": "LED lamps installed & verified functional.",
+          "timestamp": "2026-09-21T04:57:57.091Z",
+          "updatedBy": "Vikram Singh"
+        }
+      ]
+    },
+    {
+      "id": "CCMS-2026-62901",
+      "title": "Contaminated Tap Water Supply in Ward 12",
+      "description": "Tap water in our apartment complex has been coming out muddy with brown tint since morning. High risk of waterborne illnesses.",
+      "category": "Water Supply & Sewage",
+      "departmentId": "dept-4",
+      "priority": "High",
+      "status": "Submitted",
+      "citizenId": "usr-102",
+      "citizenName": "Priya Sharma",
+      "citizenEmail": "priya@ccms.gov",
+      "citizenPhone": "+91 9812345678",
+      "location": "Sunrise Apartments, Ward 12, West Zone",
+      "lat": 28.6448,
+      "lng": 77.12,
+      "createdAt": "2026-09-22T02:57:57.091Z",
+      "updatedAt": "2026-09-22T02:57:57.091Z",
+      "slaDeadline": "2026-09-23T02:57:57.091Z",
+      "assignedOfficerId": null,
+      "assignedOfficerName": null,
+      "imageUrl": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&q=80&w=800",
+      "resolutionProofUrl": null,
+      "resolutionNotes": null,
+      "feedback": null,
+      "timeline": [
+        {
+          "status": "Submitted",
+          "note": "New complaint received from citizen",
+          "timestamp": "2026-09-22T02:57:57.091Z",
+          "updatedBy": "Priya Sharma"
+        }
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "userId": "usr-101",
+      "title": "Complaint Status Updated",
+      "message": "Your complaint CCMS-2026-89412 is now 'In Progress'.",
+      "timestamp": "2026-09-22T00:57:57.091Z",
+      "read": false
+    },
+    {
+      "id": "notif-2",
+      "userId": "usr-101",
+      "title": "Complaint Resolved",
+      "message": "Your complaint CCMS-2026-10394 has been marked as Resolved. Please provide your feedback!",
+      "timestamp": "2026-09-21T04:57:57.091Z",
+      "read": true
+    }
+  ],
+  "adminProfile": {
+    "name": "Chief Admin BATTU SRINIVAS",
+    "title": "Municipal System Administrator",
+    "email": "admin@ccms.gov",
+    "phone": "+91 9554433221",
+    "department": "City Governance & Operations",
+    "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
+    "slogan": "Building a Transparent, Citizen-First Digital City",
+    "signatureBadge": "Verified Chief Administrator",
+    "themeColor": "indigo"
+  },
+  "rewardsCatalog": [
+    {
+      "id": "rw-1",
+      "title": "10% City Metro Transport Pass",
+      "category": "Public Transit",
+      "costPoints": 100,
+      "icon": "Subway",
+      "description": "Get 10% discount on monthly municipal metro train and bus passes.",
+      "code": "METRO-CIVIC-10"
+    },
+    {
+      "id": "rw-2",
+      "title": "Free Annual City Library Membership",
+      "category": "Education & Culture",
+      "costPoints": 150,
+      "icon": "BookOpen",
+      "description": "Full digital & physical access to all municipal central libraries.",
+      "code": "LIB-HERO-2026"
+    },
+    {
+      "id": "rw-3",
+      "title": "Rs. 500 Property Tax Rebate Voucher",
+      "category": "Civic Perks",
+      "costPoints": 300,
+      "icon": "Ticket",
+      "description": "Direct discount voucher applicable on annual municipal property tax.",
+      "code": "TAX-REBATE-500"
+    },
+    {
+      "id": "rw-4",
+      "title": "Official Civic Hero Certificate",
+      "category": "Recognition",
+      "costPoints": 50,
+      "icon": "Award",
+      "description": "Digital signed Certificate of Appreciation from Mayor & City Admin.",
+      "code": "CERT-CIVIC-HERO"
+    }
+  ]
+}
