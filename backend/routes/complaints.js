@@ -75,8 +75,10 @@ router.post('/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No image file uploaded.' });
   }
-  const fileUrl = `/uploads/${req.file.filename}`;
-  res.json({ imageUrl: fileUrl });
+  const host = req.get('host');
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'https';
+  const fullUrl = `${protocol}://${host}/uploads/${req.file.filename}`;
+  res.json({ imageUrl: fullUrl, relativeUrl: `/uploads/${req.file.filename}` });
 });
 
 // Get Complaints List

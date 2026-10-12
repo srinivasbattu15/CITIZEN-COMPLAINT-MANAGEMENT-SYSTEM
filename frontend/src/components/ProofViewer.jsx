@@ -1,5 +1,6 @@
 import React from 'react';
 import { Camera, CheckCircle, ArrowRight } from 'lucide-react';
+import { getImageUrl } from '../utils/api';
 
 export const ProofViewer = ({ originalImage, proofImage, resolutionNotes }) => {
   return (
@@ -20,7 +21,7 @@ export const ProofViewer = ({ originalImage, proofImage, resolutionNotes }) => {
           <div className="aspect-video bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center">
             {originalImage ? (
               <img
-                src={originalImage}
+                src={getImageUrl(originalImage)}
                 alt="Initial Complaint Issue"
                 className="w-full h-full object-cover"
               />
@@ -40,7 +41,7 @@ export const ProofViewer = ({ originalImage, proofImage, resolutionNotes }) => {
           <div className="aspect-video bg-emerald-50 rounded-lg overflow-hidden flex items-center justify-center">
             {proofImage ? (
               <img
-                src={proofImage}
+                src={getImageUrl(proofImage)}
                 alt="Resolution Proof"
                 className="w-full h-full object-cover"
               />

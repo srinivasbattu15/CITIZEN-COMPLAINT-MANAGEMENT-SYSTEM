@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api } from '../utils/api';
+import { api, getImageUrl } from '../utils/api';
 import { useNotification } from '../context/NotificationContext';
 
 import {
@@ -117,7 +117,7 @@ export const AdminProfilePage = () => {
             <div className="relative group/avatar">
               <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-purple-500 shadow-md shrink-0 bg-white">
                 <img
-                  src={avatarUrl || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'}
+                  src={getImageUrl(avatarUrl) || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'}
                   alt="Admin Avatar"
                   className="w-full h-full object-cover"
                 />

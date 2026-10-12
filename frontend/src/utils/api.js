@@ -1,4 +1,47 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+export const BACKEND_URL = 'https://citizen-complaint-management-system.onrender.com';
+
+const getApiBase = () => {
+  // 1. Explicit env variable takes top priority
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+  }
+
+  // 2. In browser, automatically use deployed Render backend if not on local machine
+  if (typeof window !== 'undefined') {
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (!isLocal) {
+      return `${BACKEND_URL}/api`;
+    }
+  }
+
+  // 3. Vite production bundle fallback
+  if (import.meta.env.PROD) {
+    return `${BACKEND_URL}/api`;
+  }
+
+  // 4. Local Vite proxy during dev
+  return '/api';
+};
+
+export const API_BASE = getApiBase();
+
+/**
+ * Normalizes an image or asset URL so that relative paths (/uploads/...)
+ * resolve to the live Render backend host when hosted on Vercel or external domains.
+ */
+export const getImageUrl = (url) => {
+  if (!url) return '';
+  if (
+    url.startsWith('http://') ||
+    url.startsWith('https://') ||
+    url.startsWith('data:') ||
+    url.startsWith('blob:')
+  ) {
+    return url;
+  }
+  const cleanPath = url.startsWith('/') ? url : `/${url}`;
+  return `${BACKEND_URL}${cleanPath}`;
+};
 
 export const api = {
   // Auth & Admin Profile
@@ -148,8 +191,15 @@ export const api = {
       method: 'POST',
       body: formData
     });
-    if (!res.ok) throw new Error('Image upload failed');
-    return res.json();
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || 'Image upload failed');
+    }
+    const data = await res.json();
+    return {
+      ...data,
+      imageUrl: getImageUrl(data.imageUrl)
+    };
   },
 
   aiAnalyze: async (title, description) => {

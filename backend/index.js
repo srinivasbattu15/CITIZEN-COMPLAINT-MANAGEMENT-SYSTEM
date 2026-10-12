@@ -20,28 +20,58 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// CORS — allow Vercel frontend + localhost dev
+// Enable proxy trust for Render / Cloudflare
+app.set('trust proxy', 1);
+
+// Allowed origins whitelist
+const allowedOrigins = [
+  'https://citizen-complaint-management-system-rho.vercel.app',
+  /\.vercel\.app$/,                 // any Vercel preview or production deployment
+  /^http:\/\/localhost(:\d+)?$/,    // local dev (any port)
+  /^http:\/\/127\.0\.0\.1(:\d+)?$/  // local dev alt
+];
+
+// CORS Configuration — full support for cross-origin credentials and preflight
 const corsOptions = {
   origin: function (origin, callback) {
-    const allowed = [
-      /\.vercel\.app$/,        // any Vercel deployment
-      /^http:\/\/localhost/,   // local dev
-      /^http:\/\/127\.0\.0\.1/ // local dev alt
-    ];
-    if (!origin || allowed.some(pattern => pattern.test(origin))) {
+    // Allow non-browser requests (e.g. mobile apps, curl, server-to-server)
+    if (!origin) return callback(null, true);
+
+    const isAllowed = allowedOrigins.some(pattern => {
+      if (typeof pattern === 'string') return pattern.toLowerCase() === origin.toLowerCase();
+      if (pattern instanceof RegExp) return pattern.test(origin);
+      return false;
+    });
+
+    if (isAllowed) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.warn(`[CORS Blocked] Origin: ${origin}`);
+      callback(null, false);
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'X-Requested-With',
+    'Accept',
+    'Origin',
+    'Access-Control-Request-Method',
+    'Access-Control-Request-Headers'
+  ],
+  exposedHeaders: ['Content-Range', 'X-Content-Range'],
+  maxAge: 86400 // Cache preflight response for 24 hours
 };
+
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static file serving for user uploaded photos
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Static file serving for user uploaded photos with CORS
+app.use('/uploads', cors(corsOptions), express.static(path.join(__dirname, 'uploads')));
 
 // API Routes
 app.use('/api/auth', authRoutes);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useNotification } from '../context/NotificationContext';
-import { api } from '../utils/api';
+import { api, getImageUrl } from '../utils/api';
 import { StatusBadge } from '../components/StatusBadge';
 import { PriorityBadge } from '../components/PriorityBadge';
 
@@ -92,7 +92,7 @@ export const AdminDashboard = () => {
           <div className="relative group">
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-2 border-purple-400 shadow-xl shrink-0 bg-slate-800">
               <img
-                src={adminProfile?.avatarUrl || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'}
+                src={getImageUrl(adminProfile?.avatarUrl) || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'}
                 alt="Admin Profile Photo"
                 className="w-full h-full object-cover"
               />

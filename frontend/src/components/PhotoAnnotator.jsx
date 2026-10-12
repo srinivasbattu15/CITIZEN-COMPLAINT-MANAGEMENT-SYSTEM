@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Plus, Trash2, Tag, Eye } from 'lucide-react';
+import { getImageUrl } from '../utils/api';
 
 export const PhotoAnnotator = ({
   imageUrl,
@@ -56,7 +57,7 @@ export const PhotoAnnotator = ({
         {/* Main Image */}
         <div className="relative cursor-crosshair select-none" onClick={handleImageClick}>
           <img
-            src={imageUrl}
+            src={getImageUrl(imageUrl)}
             alt="Problem Spot Visual"
             className="w-full h-auto max-h-[450px] object-contain mx-auto block"
           />
